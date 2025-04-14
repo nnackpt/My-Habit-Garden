@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: #87CEEB;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pixel-art {
+  image-rendering: pixelated;
+}
