@@ -301,3 +301,56 @@ async def get_habits_stats(current_user: dict = Depends(get_current_user)):
         "total_water": total_water,
         "best_habit": best_habit
     }
+
+@app.put("/habits/{habit_id}/status")
+async def update_habit_status(
+    habit_id: str,
+    is_active: bool = Body(...),
+    current_user: dict = Depends(get_current_user)
+):
+    """Update a habit's active status"""
+    habit = await habits_collection.find_one({
+        "_id": ObjectId(habit_id),
+        "user_id": ObjectId(current_user["_id"])
+    })
+
+    if not habit :
+        raise HTTPException(status_code=404, detail="Habit not found")
+    
+    await habits_collection.update_one(
+        {"_id": ObjectId(habit_id)},
+        {"$set": {"is_active": is_active}}
+    )
+
+    updated_habit = await habits_collection.find_one({"_id": ObjectId(habit_id)})
+    updated_habit["_id"] = str(updated_habit["_id"])
+    updated_habit["user_id"] = str(updated_habit["user_id"])
+
+    return updated_habit
+
+@app.get("/habits/{habit_id}/history")
+async def get_habit_history(
+    habit_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Get watering history for a specific habit"""
+    habit = await habits_collection.find_one({
+        "_id": ObjectId(habit_id),
+        "user_id": ObjectId(current_user["_id"])
+    })
+
+    if not habit:
+        raise HTTPException(status_code=404, detail="Habit not found")
+    
+    history = habit.get("watering_history", [])
+
+    # format dates for frontend
+    for entry in history:
+        if "date" in entry:
+            entry["date"] = entry["date"].isoformat()
+
+    return {
+        "habit_id": str(habit["_id"]),
+        "habit_name": habit["name"],
+        "history": history
+    }
