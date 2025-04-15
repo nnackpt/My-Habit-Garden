@@ -168,7 +168,11 @@ async def get_current_user_info(current_user: dict = Depends(get_current_user)):
     }
 
 @app.post("/habits", response_model=Habit)
-async def create_habit(name:str, description: Optional[str] = None, current_user: dict = Depends(get_current_user)):
+async def create_habit(
+    name:str = Body(...), 
+    description: Optional[str] = Body(None), 
+    current_user: dict = Depends(get_current_user)
+):
     habit_data = {
         "user_id": ObjectId(current_user["_id"]),
         "name": name,
@@ -177,7 +181,11 @@ async def create_habit(name:str, description: Optional[str] = None, current_user
         "is_active": True,
     }
     result = await habits_collection.insert_one(habit_data)
-    return {**habit_data, "_id": result.inserted_id}
+    
+    habit_data["_id"] = str(result.inserted_id)
+    habit_data["user_id"] = str(habit_data["user_id"])
+
+    return habit_data
 
 @app.patch("/habits/{habit_id}")
 async def update_habit(
@@ -268,6 +276,10 @@ async def water_habit(habit_id:str, current_user: dict = Depends(get_current_use
 @app.get("/habits", response_model=List[Habit])
 async def list_habits(current_user: dict = Depends(get_current_user)):
     habits = await habits_collection.find({"user_id": ObjectId(current_user["_id"])}).to_list(100)
+
+    for habit in habits:
+        habit["_id"] = str(habit["_id"])
+        habit["user_id"] = str(habit["user_id"])
     return habits
 
 @app.get("/habits/stats")
