@@ -1,32 +1,34 @@
-# 🌱 My Habit Garden – ระบบปลูกต้นไม้ตามพฤติกรรมดีๆ
+# 🌱 My Habit Garden – Grow Habits Like Plants (8-bit Style)
 
-ปลูกนิสัยดีๆ เหมือนปลูกต้นไม้ รดน้ำทุกวัน แล้วรอดูมันเติบโต!  
-โปรเจกต์นี้ออกแบบมาเพื่อเปลี่ยนการสร้างนิสัยใหม่ให้เป็นเรื่องสนุก 🌿
-
----
-
-## 🧠 คอนเซปต์
-
-- ผู้ใช้ตั้ง **นิสัยหรือเป้าหมาย** ที่อยากทำให้ได้ (เช่น ดื่มน้ำ, ออกกำลังกาย, อ่านหนังสือ)
-- ทุกครั้งที่ทำได้ → ได้ “น้ำ” หรือ “พลังชีวิต” มารดต้นไม้
-- เมื่อทำสม่ำเสมอ → **ต้นไม้จะเติบโต** สวยขึ้นเรื่อยๆ
-- ขาดหลายวัน → พลังลด → ต้นไม้เหี่ยว 😂
+Build good habits just like growing pixel plants — water them daily and watch them thrive!  
+This project turns habit-building into a fun and visual experience inspired by retro 8-bit games 🌿
 
 ---
 
-## 🔥 ฟีเจอร์หลัก
+## 🧠 Concept
 
-### 👤 ฟีเจอร์ผู้ใช้:
+- Users create **habits or goals** they want to achieve (e.g., drink water, exercise, read books)
+- Every time the habit is completed → you earn "water" or "life points" to nurture your plant
+- Consistency makes your **plant grow healthier and more beautiful**
+- Miss too many days → life points drop → your plant wilts 😂
 
-- ✅ สร้างบัญชี / ล็อกอิน (optional)
-- 🌟 สร้างเป้าหมายใหม่ เช่น “ดื่มน้ำวันละ 2 ลิตร”
-- 📅 กด “บันทึก” เมื่อตัวเองทำสำเร็จในแต่ละวัน
+---
 
-### 🌿 ระบบต้นไม้:
+## 🔥 Key Features
 
-- 📈 แต่ละพฤติกรรมมี “ต้นไม้” ของตัวเอง พร้อมกราฟิก
-- 💧 ทำได้ → พลังชีวิตเพิ่ม → ต้นไม้เติบโต
-- 🥀 ขาดหลายวัน → พลังชีวิตลด → ต้นไม้เหี่ยว
+### 👤 User Features:
+
+- ✅ Create an account / Login (optional)
+- 🌟 Add custom goals (e.g., “Drink 2L of water daily”)
+- 📅 Tap “Complete” each day you successfully follow your habit
+
+### 🌿 Habit-to-Plant System:
+
+- 📈 Each habit has its own **plant** with pixel art graphics
+- 💧 Completing habits increases life → plant grows!
+- 🥀 Missing days reduces life → plant starts to wilt
+
+> 🎮 All visuals follow a retro **8-bit pixel art** aesthetic to make habit tracking more engaging and nostalgic!
 
 ---
 
@@ -38,25 +40,31 @@
 
 ---
 
-## 📸 ตัวอย่างหน้าจอ (Coming soon)
+## 📸 Screenshots
 
-> 🔜 อยู่ระหว่างพัฒนา UI และกราฟิกต้นไม้
+### 🌟 Dashboard – Overview of Habits & Plants
+
+![Dashboard](./assets/Dashboard.png)
+
+### 🌱 Habit Garden – Watch Your Habits Grow!
+
+![Habit Garden](./assets/Garden.png)
 
 ---
 
-## 🚀 เริ่มต้นใช้งาน
+## 🚀 Getting Started
 
 ```bash
-# 1. Clone Repo
+# 1. Clone the repository
 git clone https://github.com/yourusername/my-habit-garden.git
 cd my-habit-garden
 
-# 2. ติดตั้ง dependencies ฝั่ง frontend
+# 2. Install frontend dependencies
 cd frontend
 npm install
 npm run dev
 
-# 3. ติดตั้ง dependencies ฝั่ง backend
+# 3. Install backend dependencies
 cd ../backend
 pip install -r requirements.txt
 uvicorn main:app --reload
