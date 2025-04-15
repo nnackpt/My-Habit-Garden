@@ -1,12 +1,71 @@
-# React + Vite
+# 🌱 My Habit Garden – Grow Habits Like Plants (8-bit Style)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Build good habits just like growing pixel plants — water them daily and watch them thrive!  
+This project turns habit-building into a fun and visual experience inspired by retro 8-bit games 🌿
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Concept
 
-## Expanding the ESLint configuration
+- Users create **habits or goals** they want to achieve (e.g., drink water, exercise, read books)
+- Every time the habit is completed → you earn "water" or "life points" to nurture your plant
+- Consistency makes your **plant grow healthier and more beautiful**
+- Miss too many days → life points drop → your plant wilts 😂
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🔥 Key Features
+
+### 👤 User Features:
+
+- ✅ Create an account / Login (optional)
+- 🌟 Add custom goals (e.g., “Drink 2L of water daily”)
+- 📅 Tap “Complete” each day you successfully follow your habit
+
+### 🌿 Habit-to-Plant System:
+
+- 📈 Each habit has its own **plant** with pixel art graphics
+- 💧 Completing habits increases life → plant grows!
+- 🥀 Missing days reduces life → plant starts to wilt
+
+> 🎮 All visuals follow a retro **8-bit pixel art** aesthetic to make habit tracking more engaging and nostalgic!
+
+---
+
+## 🛠️ Tech Stack
+
+| Frontend                                                    | Backend                                  | Database | Styling                                 | UI Framework                    |
+| ----------------------------------------------------------- | ---------------------------------------- | -------- | --------------------------------------- | ------------------------------- |
+| [Vite](https://vitejs.dev/) + [React](https://reactjs.org/) | [FastAPI](https://fastapi.tiangolo.com/) | MongoDB  | [TailwindCSS](https://tailwindcss.com/) | [DaisyUI](https://daisyui.com/) |
+
+---
+
+## 📸 Screenshots
+
+### 🌟 Dashboard – Overview of Habits & Plants
+
+![Dashboard](./assets/Dashboard.png)
+
+### 🌱 Habit Garden – Watch Your Habits Grow!
+
+![Habit Garden](./assets/Garden.png)
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/my-habit-garden.git
+cd my-habit-garden
+
+# 2. Install frontend dependencies
+cd frontend
+npm install
+npm run dev
+
+# 3. Install backend dependencies
+cd ../backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
