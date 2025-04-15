@@ -44,11 +44,11 @@ This project turns habit-building into a fun and visual experience inspired by r
 
 ### 🌟 Dashboard – Overview of Habits & Plants
 
-![Dashboard](./assets/Dashboard.png)
+![Dashboard](./src/assets/Dashboard.png)
 
 ### 🌱 Habit Garden – Watch Your Habits Grow!
 
-![Habit Garden](./assets/Garden.png)
+![Habit Garden](./src/assets/Garden.png)
 
 ---
 
