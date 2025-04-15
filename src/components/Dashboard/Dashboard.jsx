@@ -104,7 +104,7 @@ function Dashboard() {
     }
 
     if (loading) {
-        return <div className="text-center mt-8">Loading...</div>
+        return <div className="text-center mt-8 text-gray-600">Loading...</div>
     }
 
     return (

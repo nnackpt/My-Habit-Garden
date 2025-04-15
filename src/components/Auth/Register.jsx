@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import PixelButton from '../UI/PixelButton';
 import PixelInput from '../UI/PixelInput';
+import PixelDateInput from '../UI/PixelDateInput';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -113,11 +114,11 @@ function Register() {
           
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">Birth Date</label>
-            <PixelInput
-              type="date"
-              name="birth_date"
-              value={formData.birth_date}
-              onChange={handleChange}
+            <PixelDateInput
+              value={formData.birth_date ? new Date(formData.birth_date) : null}
+              onChange={(date) => {
+                handleChange({ target: { name: 'birth_date', value: date } })
+              }}
             />
           </div>
           
@@ -127,7 +128,7 @@ function Register() {
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="w-full px-3 py-2 border-4 border-gray-800 rounded bg-white font-pixel text-lg"
+              className="w-full px-3 py-2 border-4 border-gray-800 rounded bg-white font-pixel text-lg text-gray-400"
             >
               <option value="">Select gender (optional)</option>
               <option value="male">Male</option>
@@ -143,18 +144,26 @@ function Register() {
               value={formData.address}
               onChange={handleChange}
               placeholder="Your address (optional)"
-              className="w-full px-3 py-2 border-4 border-gray-800 rounded bg-white font-pixel text-lg"
+              className="w-full px-3 py-2 border-4 border-gray-800 rounded bg-white font-pixel text-lg text-gray-600"
               rows="3"
             ></textarea>
           </div>
           
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">Profile Picture</label>
+            <label 
+              htmlFor="profile_picture"
+              className="block w-full px-3 py-2 font-pixel text-gray-400 border border-gray-300 rounded cursor-pointer hover:bg-gray-50 border-4 border-gray-800"
+            >
+              {formData.profile_picture ? `File selected: ${formData.profile_picture.name}` : 'Click to choose a file (optional)'}
+            </label>
+
             <input
+              id="profile_picture" 
               type="file"
               name="profile_picture"
               onChange={handleFileChange}
-              className="w-full px-3 py-2 font-pixel"
+              className="hidden" 
             />
           </div>
           

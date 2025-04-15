@@ -18,6 +18,13 @@ body {
   image-rendering: pixelated;
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .font-pixel {
   font-family: 'Press Start 2P', cursive;
 }

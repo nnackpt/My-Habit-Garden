@@ -30,13 +30,13 @@ function GardenView() {
     }, [])
 
     if (loading) {
-        return <div className="text-center mt-8">Loading your garden...</div>
+        return <div className="text-center mt-8 text-gray-600">Loading your garden...</div>
     }
 
     return (
         <div>
             <h1 className="text-3xl font-bold text-center mb-8 text-green-800 pixel-shadow">
-                {currentUser.firstname}'s Habit Garden
+                {currentUser.first_name}'s Habit Garden
             </h1>
 
             {habits.length === 0 ? (

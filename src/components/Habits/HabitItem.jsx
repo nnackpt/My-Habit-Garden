@@ -16,14 +16,14 @@ function HabitItem({ habit, onWater, onDelete }) {
     <div className='bg-white p-4 rounded-lg shadow-md border-4 border-black'>
         <div className='flex flex-wrap md:flex-nowrap'>
             <div className='w-24 h-24 flex-shrink-0 mr-4'>
-                <PlantGraphic waterLevel={habit.waterLevel}/>
+                <PlantGraphic waterLevel={habit.water_level}/>
             </div>
 
             <div className='flex-grow'>
                 <div className='flex justify-between'>
                     <h3 className='text-xl font-bold text-green-700'>{habit.name}</h3>
                     <div className='text-yellow-600 font-bold'>
-                        💧 Level: {habit.waterLevel}
+                        💧 Level: {habit.water_level}
                     </div>
                 </div>
 
@@ -33,14 +33,14 @@ function HabitItem({ habit, onWater, onDelete }) {
 
                 <div className='mt-3 flex space-x-3'>
                     <PixelButton
-                        onCick={handleWater}
+                        onClick={handleWater}
                         className="bg-blue-500 hover:bg-blue-600"
                     >
                         💧 Water
                     </PixelButton>
 
                     <PixelButton
-                        onCick={handleDelete}
+                        onClick={handleDelete}
                         className="bg-red-500 hover:bg-red-600"
                     >
                         🗑️ Delete
