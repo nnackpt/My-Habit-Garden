@@ -42,7 +42,7 @@ function GardenView() {
             {habits.length === 0 ? (
                 <div className="text-center p-8 bg-white rounded-lg border-4 border-black">
                     <h2 className="text-2xl font-bold mb-4 text-gray-700">Your garden is empty!</h2>
-                    <p className="mb-4">Start creating habits to grow your garden.</p>
+                    <p className="mb-4 text-gray-400">Start creating habits to grow your garden.</p>
                 </div>
             ) : (
                 <div className="relative">

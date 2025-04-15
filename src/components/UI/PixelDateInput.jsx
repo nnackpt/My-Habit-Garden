@@ -5,10 +5,15 @@ import './pixel-calendar.css'
 import { enUS } from 'date-fns/locale'
 
 export default function PixelDateInput({ value, onChange }) {
+    const handleDateChange = (date) => {
+        const formattedDate = date ? date.toISOString().split('T')[0] : null
+        onChange(formattedDate)
+    }
+
     return (
         <DatePicker 
-            selected={value}
-            onChange={onChange}
+            selected={value ? new Date(value) : null}
+            onChange={handleDateChange}
             locale={enUS}
             dateFormat="MMMM d, yyyy"
             placeholderText="Select your birth date"

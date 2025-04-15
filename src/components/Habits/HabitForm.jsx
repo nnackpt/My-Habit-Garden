@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PixelButton from '../UI/PixelButton'
 import PixelInput from '../UI/PixelInput'
 
 function HabitForm({ onSubmit, onCancel }) {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
+    const [successMessage, setSuccessMessage] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -33,8 +36,15 @@ function HabitForm({ onSubmit, onCancel }) {
 
             const data = await response.json()
             console.log("Habit created:", data)
+
             setName("")
             setDescription("")
+
+            setSuccessMessage("Habit created successfully!")
+            setTimeout(() => {
+                setSuccessMessage("")
+                navigate("/garden")
+            }, 2000)
         } catch (error) {
             console.error("Error creating habit:", error.message)
             alert(`Failed to create habit: ${error.message}`)
@@ -42,46 +52,53 @@ function HabitForm({ onSubmit, onCancel }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-                <label className="bloack text-gray-700 font-bold mb-2">
-                    Habit Name*
-                </label>
-                <PixelInput 
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    placeholder="e.g., Drink Water, Exercise, Read"
-                />
-            </div>
+        <div>
+            {successMessage && (
+                <div className="bg-green-200 border-l-4 border-green-500 text-green-800 p-4 mb-4 font-pixel">
+                    {successMessage}
+                </div>
+            )}
+            <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                    <label className="bloack text-gray-700 font-bold mb-2">
+                        Habit Name*
+                    </label>
+                    <PixelInput 
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        placeholder="e.g., Drink Water, Exercise, Read"
+                    />
+                </div>
 
-            <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2">
-                    Description (Optional)
-                </label>
-                <textarea 
-                    value={description} 
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="e.g., Drink 2 liters of water daily"
-                    className="w-full px-3 py-2 border-4 border-gray-800 rounded bg-white font-pixel text-lg text-gray-600"
-                    rows="3"
-                ></textarea>
-            </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">
+                        Description (Optional)
+                    </label>
+                    <textarea 
+                        value={description} 
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="e.g., Drink 2 liters of water daily"
+                        className="w-full px-3 py-2 border-4 border-gray-800 rounded bg-white font-pixel text-lg text-gray-600"
+                        rows="3"
+                    ></textarea>
+                </div>
 
-            <div className="flex justify-end space-x-3">
-                <PixelButton 
-                    type="button"
-                    onClick={onCancel}
-                    className="bg-gray-500 hover:bg-gray-600"
-                >
-                    Cancel
-                </PixelButton>
-                <PixelButton type="submit">
-                    create Habit
-                </PixelButton>
-            </div>
-        </form>
+                <div className="flex justify-end space-x-3">
+                    <PixelButton 
+                        type="button"
+                        onClick={onCancel}
+                        className="bg-gray-500 hover:bg-gray-600"
+                    >
+                        Cancel
+                    </PixelButton>
+                    <PixelButton type="submit">
+                        create Habit
+                    </PixelButton>
+                </div>
+            </form>
+        </div>
     )
 }
 

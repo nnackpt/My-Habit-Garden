@@ -33,6 +33,10 @@ function Register() {
     setFormData(prev => ({ ...prev, profile_picture: e.target.files[0] }));
   };
 
+  const handleDateChange = (date) => {
+    setFormData((prev) => ({ ...prev, birth_date: date }))
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -116,9 +120,7 @@ function Register() {
             <label className="block text-gray-700 font-bold mb-2">Birth Date</label>
             <PixelDateInput
               value={formData.birth_date ? new Date(formData.birth_date) : null}
-              onChange={(date) => {
-                handleChange({ target: { name: 'birth_date', value: date } })
-              }}
+              onChange={handleDateChange}
             />
           </div>
           
