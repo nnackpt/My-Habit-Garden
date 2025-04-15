@@ -1,17 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @import "tailwindcss";
 @plugin "daisyui";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pixel-shadow-color: rgba(0, 0, 0, 0.5);
+}
 
 body {
-  font-family: "Press Start 2P", cursive;
-  background-color: #87CEEB;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.pixel-art {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
   image-rendering: pixelated;
+}
+
+.font-pixel {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.pixel-shadow {
+  text-shadow: 
+    2px 0 0 var(--pixel-shadow-color),
+    0 2px 0 var(--pixel-shadow-color),
+    -2px 0 0 var(--pixel-shadow-color),
+    0 -2px 0 var(--pixel-shadow-color);
+}
+
+.shadow-pixel {
+  box-shadow: 
+    4px 4px 0 rgba(0, 0, 0, 0.8);
+}
+
+.underling-pixel {
+  text-decoration: none;
+  background-image: linear-gradient(transparent 80%, currentColor 80%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+}
+
+.bg-brown-500 {
+  background-color: #8B5E3C;
+}
+
+.bg-brown-600 {
+  background-color: #6F4E37;
+}
+
+.bg-brown-700 {
+  background-color: #5D4037;
+}
+
+.border-brown-700 {
+  border-color: #5D4037;
+}
+
+.bottom-18 {
+  bottom: 4.5rem;
+}
+
+.bottom-22 {
+  bottom: 5.5rem;
 }
